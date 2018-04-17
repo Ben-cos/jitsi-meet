@@ -23,6 +23,10 @@ export function enterPictureInPicture() {
     return (dispatch: Dispatch, getState: Function) => {
         const state = getState();
         const { app } = state['features/app'];
+
+        // FIXME We also want to go PiP in the early joining phase, after the
+        // room name was clicked, but just before "joining" was set in the
+        // reducer.
         const { conference, joining } = state['features/base/conference'];
 
         if (app
